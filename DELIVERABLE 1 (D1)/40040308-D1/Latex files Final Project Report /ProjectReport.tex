@@ -1,0 +1,65 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{times}
+\usepackage[left=3cm,right=3cm,top=3cm]{geometry}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{caption,subcaption}
+\usepackage{multicol}
+\setcounter{secnumdepth}{2}
+
+\begin{document}
+\pagenumbering{roman}
+
+\input{chapters/title}
+\newpage
+
+\newpage
+\addcontentsline{toc}{chapter}{Acknowledgment}
+
+ \chapter*{\centering Acknowledgment}
+\input{chapters/acknowledgment}
+
+\newpage
+\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{\centering Abstract}
+\input{chapters/abstract}
+
+\newpage
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\chapter[Background]{Background}
+\input{chapters/introduction}
+
+\chapter{A brief description of Silver Ratio Number}
+\input{chapters/description}
+
+\chapter{Interview} 
+\input{chapters/interview}
+
+\chapter{Persona of an interviewee}
+\input{chapters/persona}
+
+\chapter{A Domain Model}
+\input{chapters/domainmodel}
+
+\chapter{A Use Case Model}
+\input{chapters/usecasemodel}
+
+\chapter{Conclusion and Discussion}
+\input{chapters/conclusion}
+
+\bibliographystyle{ieeetr}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{References}
+\end{document}
+
+
