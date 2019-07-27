@@ -48,8 +48,13 @@ public class Driver {
 	}
 
 	private static void calculateSilverRatio() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(silverRatio(22));
 	}
+	
+	// Calculates the value of the silver ratio number
+	public static double silverRatio(int n) {
+        if (n == 0) return 1;
+        return 2.0 + 1.0 / silverRatio(n-1);
+    }
 	
 }
