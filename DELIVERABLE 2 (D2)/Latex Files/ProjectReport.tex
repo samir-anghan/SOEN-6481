@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{times}
+\usepackage[left=3cm,right=3cm,top=3cm]{geometry}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{caption,subcaption}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{tabu}
+\setcounter{secnumdepth}{2}
+
+\begin{document}
+\pagenumbering{roman}
+
+\input{chapters/title}
+\newpage
+
+\newpage
+\addcontentsline{toc}{chapter}{Acknowledgment}
+
+ \chapter*{\centering Acknowledgment}
+\input{chapters/acknowledgment}
+
+\newpage
+\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{\centering Abstract}
+\input{chapters/abstract}
+
+\newpage
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\chapter[Background]{Background}
+\input{chapters/introduction}
+
+\chapter{User stories for calculator system} 
+\input{chapters/user_stories}
+
+\chapter{Backward traceability matrix for calculator system} 
+\input{chapters/traceability_matrix}
+
+\chapter{Implementation for user stories}
+\input{chapters/implementation_user_stories}
+
+\chapter{Conclusion and Discussion}
+\input{chapters/conclusion}
+
+\bibliographystyle{ieeetr}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{References}
+\end{document}
+
+
