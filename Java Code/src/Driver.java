@@ -23,6 +23,10 @@ public class Driver {
 			break;
 			
 		case 2:
+			System.out.println("Enter side length of octagon:");
+			int sideLength = in.nextInt();
+			System.out.println("The area of a regular octagon with side length " + sideLength + " is: " + areaOfOctagon(sideLength));
+			areaOfOctagon(sideLength);
 			break;
 		
 		case 3:
@@ -45,6 +49,11 @@ public class Driver {
 			break;
 		}
 
+	}
+
+	private static double areaOfOctagon(double sideLength) {
+		double silverRatio = silverRatio(22);
+		return (2 * (silverRatio)) * (sideLength * sideLength);	
 	}
 
 	private static void calculateSilverRatio() {
