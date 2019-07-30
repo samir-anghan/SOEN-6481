@@ -26,6 +26,7 @@ public class Driver {
 			System.out.println("Press 0 : To Switch Off");
 			displayFromMemory();
 
+			
 			userChoice = in.nextInt();
 			in.nextLine();
 
