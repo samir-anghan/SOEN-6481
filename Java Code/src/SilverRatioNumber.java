@@ -35,6 +35,7 @@ public class SilverRatioNumber implements IrrationalNumber {
 	 * @return the value
 	 */
 	public double getSilverRatioValue() {
+		computeValue();
 		return silverRatioValue;
 	}
 

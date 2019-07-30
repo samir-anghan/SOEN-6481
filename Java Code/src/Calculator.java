@@ -15,6 +15,7 @@ public class Calculator {
 		
 		IrrationalNumber silverRatio = new SilverRatioNumber();
 		AreaOfRegularOctagonExpression regularOctagonExpression = new AreaOfRegularOctagonExpression();
+		ArithmaticExpression arithmaticExpression = new ArithmaticExpression();
 		Display display = new Display();
 		
 		Scanner in = new Scanner(System.in);
@@ -48,7 +49,7 @@ public class Calculator {
 					display.displayResult(result);
 				} catch (Exception e1) {
 					display.displayResult("ERROR");
-					display.printError("Maximum 15 digits can be shown after decimal point! Try again with smaller number than 15.");
+					display.printError("Maximum 15 digits can be shown after decimal point! Try again using smaller number than 15.");
 				}
 				break;
 
@@ -62,6 +63,18 @@ public class Calculator {
 				break;
 
 			case 3:
+				System.out.println("*?");
+				System.out.println("*? Use the character \"S\" in your expression for the silver ratio number, if you want to use the silver ratio number.");
+				System.out.println("*? Please write your arithmetic expression:");
+				System.out.println("*?");
+				String expression = in.nextLine();
+				try {
+					result = arithmaticExpression.evaluate(expression);
+					display.displayResult(result);
+				} catch (Exception e1) {
+					display.displayResult("ERROR");
+					display.printError("Not a valid arithmetic expression! Try again using valid arithmetic expression.");
+				}
 				break;
 
 			case 4:
