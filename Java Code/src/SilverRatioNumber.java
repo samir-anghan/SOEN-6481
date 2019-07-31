@@ -6,7 +6,7 @@
  * @author Samir
  *
  */
-public class SilverRatioNumber implements IrrationalNumber {
+public class SilverRatioNumber extends Expression implements IrrationalNumber  {
 
 	private double silverRatioValue;
 
@@ -17,12 +17,12 @@ public class SilverRatioNumber implements IrrationalNumber {
 	}
 	
 	@Override
-	public double computeValueUptoPrecision(int numberofDecimals) {
+	public void computeValueUptoPrecision(int numberofDecimals) {
 		computeValue();
 		String silverRatioAsString = String.valueOf(silverRatioValue);
 		String truncatedString = silverRatioAsString.substring(0, numberofDecimals + 2);
 		double truncatedSilverRatioValue = Double.parseDouble(truncatedString);
-		return truncatedSilverRatioValue;
+		result = truncatedSilverRatioValue;
 	}
 	
 	private double computeSilverRatio(int n) {

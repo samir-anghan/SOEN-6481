@@ -13,15 +13,17 @@ public class Calculator {
 
 	public static void main(String[] args) {
 		
-		IrrationalNumber silverRatio = new SilverRatioNumber();
+		SilverRatioNumber silverRatio = new SilverRatioNumber();
 		AreaOfRegularOctagonExpression regularOctagonExpression = new AreaOfRegularOctagonExpression();
 		ArithmaticExpression arithmaticExpression = new ArithmaticExpression();
 		CareTaker careTaker = new CareTaker();
 		Display display = new Display();
+		CurrentOperation currentOperation = CurrentOperation.None;
 		
 		Scanner in = new Scanner(System.in);
 		int userChoice;
 		double result = 0;
+		
 		
 		System.out.println("** The Irrational Number Calculator **\n");
 		display.displayResult(result);
@@ -72,12 +74,15 @@ public class Calculator {
 				System.out.println("*?");
 				String expression = in.nextLine();
 				try {
-					result = arithmaticExpression.evaluate(expression);
+					arithmaticExpression.evaluate(expression);
+					result = arithmaticExpression.getResult();
 					display.displayResult(result);
 				} catch (Exception e1) {
 					display.displayResult("ERROR");
+					result = 0;
 					display.printError("Not a valid arithmetic expression! Try again using valid arithmetic expression.");
 				}
+				currentOperation = CurrentOperation.ArithmeticExpression;
 				break;
 
 			case 2:
@@ -86,12 +91,15 @@ public class Calculator {
 				System.out.println("*?");
 				int numberofDecimals = in.nextInt();
 				try {
-					result = silverRatio.computeValueUptoPrecision(numberofDecimals);
+					silverRatio.computeValueUptoPrecision(numberofDecimals);
+					result = silverRatio.getResult();
 					display.displayResult(result);
 				} catch (Exception e1) {
 					display.displayResult("ERROR");
+					result = 0;
 					display.printError("Maximum 15 digits can be shown after decimal point! Try again using smaller number than 15.");
 				}
+				currentOperation = CurrentOperation.ComputeSilverRatio;
 				break;
 				
 			case 3:
@@ -102,10 +110,52 @@ public class Calculator {
 				regularOctagonExpression.computeAreaOfRegularOctagon(sideLength);
 				result = regularOctagonExpression.getResult();
 				display.displayResult(result);
+				currentOperation = CurrentOperation.AreaOfOctagon;
 				break;
 
 			case 4:
-				
+				switch (currentOperation) {
+				case ArithmeticExpression:
+					careTaker.set(arithmaticExpression.saveResultToMemento());
+					break;
+					
+				case AreaOfOctagon:
+					careTaker.set(regularOctagonExpression.saveResultToMemento());
+					break;
+					
+				case ComputeSilverRatio:
+					careTaker.set(silverRatio.saveResultToMemento());
+					break;
+
+				default:
+					break;
+				}
+				break;
+			
+			case 5:
+				int index = careTaker.getListSize() - 1;
+				switch (currentOperation) {
+				case ArithmeticExpression:
+					arithmaticExpression.restoreResultFromMemento(careTaker.get(index));
+					result = arithmaticExpression.getResult();
+					display.displayResult(result);
+					break;
+					
+				case AreaOfOctagon:
+					regularOctagonExpression.restoreResultFromMemento(careTaker.get(index));
+					result = regularOctagonExpression.getResult();
+					display.displayResult(result);
+					break;
+					
+				case ComputeSilverRatio:
+					silverRatio.restoreResultFromMemento(careTaker.get(index));
+					result = silverRatio.getResult();
+					display.displayResult(result);
+					break;
+
+				default:
+					break;
+				}
 				break;
 				
 			case 0:
@@ -126,6 +176,13 @@ public class Calculator {
 				break;
 			}
 		} while (userChoice != 0);
+	}
+
+	enum CurrentOperation {
+		None,
+		ArithmeticExpression,
+		ComputeSilverRatio,
+		AreaOfOctagon;
 	}
 
 }

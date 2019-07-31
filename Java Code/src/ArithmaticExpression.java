@@ -8,11 +8,11 @@ import java.util.Stack;
  * @author Samir
  *
  */
-public class ArithmaticExpression {
+public class ArithmaticExpression extends Expression {
 
 	SilverRatioNumber silverRatio = new SilverRatioNumber();
 
-	public double evaluate(String expression) {
+	public void evaluate(String expression) {
 		
 		validate(expression);
 		
@@ -77,7 +77,7 @@ public class ArithmaticExpression {
 			valuesStack.push(applyOperator(operatorStack.pop(), valuesStack.pop(), valuesStack.pop()));
 
 		// Top of 'values' contains result, return it
-		return valuesStack.pop();
+		result = valuesStack.pop();
 	}
 
 	// Returns true if 'op2' has higher or same precedence as 'op1',
