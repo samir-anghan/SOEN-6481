@@ -1,38 +1,34 @@
 import java.util.Stack;
 
 /**
+ * Arithmetic Expression
  * 
- */
-
-/**
  * @author Samir
- *
  */
-public class ArithmaticExpression extends Expression {
+public class ArithmeticExpression extends Expression {
 
 	SilverRatioNumber silverRatio = new SilverRatioNumber();
 
+	/**
+	 * Evaluates arithmetic expression.
+	 * 
+	 * @param expression Expression to evaluate.
+	 */
 	public void evaluate(String expression) {
-		
+
 		validate(expression);
-		
+
 		char[] tokens = expression.toCharArray();
-
-		// Stack for numbers: 'values'
 		Stack<Double> valuesStack = new Stack<Double>();
-
-		// Stack for Operators: 'ops'
 		Stack<Character> operatorStack = new Stack<Character>();
 
 		for (int i = 0; i < tokens.length; i++) {
-			// Current token is a whitespace, skip it
 			if (tokens[i] == ' ')
 				continue;
 
-			// Current token is a number, push it to stack for numbers
 			if (tokens[i] >= '0' && tokens[i] <= '9') {
 				StringBuffer sbuf = new StringBuffer();
-				// There may be more than one digits in number
+
 				while (i < tokens.length && ((tokens[i] >= '0' && tokens[i] <= '9') || tokens[i] == '.'))
 					sbuf.append(tokens[i++]);
 
@@ -47,52 +43,54 @@ public class ArithmaticExpression extends Expression {
 				valuesStack.push(silverRatioNumber);
 			}
 
-			// Current token is an opening brace, push it to 'ops'
 			if (tokens[i] == '(')
 				operatorStack.push(tokens[i]);
 
-			// Closing brace encountered, solve entire brace
 			if (tokens[i] == ')') {
 				while (operatorStack.peek() != '(')
 					valuesStack.push(applyOperator(operatorStack.pop(), valuesStack.pop(), valuesStack.pop()));
 				operatorStack.pop();
 			}
 
-			// Current token is an operator.
 			if (tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/') {
-				// While top of 'ops' has same or greater precedence to current
-				// token, which is an operator. Apply operator on top of 'ops'
-				// to top two elements in values stack
 				while (!operatorStack.empty() && hasPrecedence(tokens[i], operatorStack.peek()))
 					valuesStack.push(applyOperator(operatorStack.pop(), valuesStack.pop(), valuesStack.pop()));
 
-				// Push current token to 'ops'.
 				operatorStack.push(tokens[i]);
 			}
 		}
 
-		// Entire expression has been parsed at this point, apply remaining
-		// ops to remaining values
 		while (!operatorStack.empty())
 			valuesStack.push(applyOperator(operatorStack.pop(), valuesStack.pop(), valuesStack.pop()));
 
-		// Top of 'values' contains result, return it
 		result = valuesStack.pop();
 	}
 
-	// Returns true if 'op2' has higher or same precedence as 'op1',
-	// otherwise returns false.
-	private boolean hasPrecedence(char op1, char op2) {
-		if (op2 == '(' || op2 == ')')
+	/**
+	 * Returns true if 'operator2' has higher or same precedence as 'operator1',
+	 * otherwise returns false.
+	 * 
+	 * @param operator1 Operator
+	 * @param operator2 Operator
+	 * @return
+	 */
+	private boolean hasPrecedence(char operator1, char operator2) {
+		if (operator2 == '(' || operator2 == ')')
 			return false;
-		if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-'))
+		if ((operator1 == '*' || operator1 == '/') && (operator2 == '+' || operator2 == '-'))
 			return false;
 		else
 			return true;
 	}
 
-	// A utility method to apply an operator 'op' on operands 'a'
-	// and 'b'. Return the result.
+	/**
+	 * Apply an operator 'op' on operands 'a' and 'b'.
+	 * 
+	 * @param op Operator
+	 * @param b  Operand
+	 * @param a  Operand
+	 * @return The result.
+	 */
 	private double applyOperator(char op, double b, double a) {
 		switch (op) {
 		case '+':
@@ -109,6 +107,11 @@ public class ArithmaticExpression extends Expression {
 		return 0;
 	}
 
+	/**
+	 * Validates an expression.
+	 * 
+	 * @param expression Expression to validate.
+	 */
 	private void validate(String expression) {
 		char[] tokens = expression.toCharArray();
 
@@ -116,7 +119,7 @@ public class ArithmaticExpression extends Expression {
 			char ch = tokens[i];
 
 			boolean isValid = Character.isDigit(ch) || ch == '+' || ch == '-' || ch == '/' || ch == '*' || ch == '('
-					|| ch == ')' || ch == ' ' || ch == 's' || ch == 'S';
+					|| ch == ')' || ch == ' ' || ch == 's' || ch == 'S' || ch == '.';
 
 			if (isValid == false) {
 				throw new InvalidArithmeticExpressionException("Invalid Arithmetic Expression");

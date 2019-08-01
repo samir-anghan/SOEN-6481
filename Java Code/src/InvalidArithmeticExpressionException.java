@@ -1,8 +1,5 @@
 /**
- * 
- */
-
-/**
+ * Custom exception handle invalid arithmetic expression exception
  * @author Samir
  *
  */

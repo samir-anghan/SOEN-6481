@@ -1,8 +1,5 @@
 /**
- * 
- */
-
-/**
+ * Restores an object to its previous state
  * @author Samir
  *
  */

@@ -1,10 +1,6 @@
 /**
- * 
- */
-
-/**
+ * Holds value of Silver Ratio Number.
  * @author Samir
- *
  */
 public class SilverRatioNumber extends Expression implements IrrationalNumber  {
 
