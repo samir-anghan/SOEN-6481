@@ -2,15 +2,15 @@
 \begin{enumerate}
   \item \textbf{User story statement:} Following structure is used to build up user story statement:
   \begin{center}
-  As a \textbf{[Role]}, I want to ... \textbf{[Goal]}, so that I can ... \textbf{ [Value]}.
+  As a \textbf{[Role]}, I would like to ... \textbf{[Goal]}, so that I can ... \textbf{ [Value]}.
   \end{center}
-  \item \textbf{Priority:} The prioritization of user stories is done using MoSCoW prioritization scheme. Each user story is assign a category of MoSCoW considering:
+  \item \textbf{Priority:} The prioritization of user stories is done using MoSCoW prioritization scheme \cite{wiki_MoSCoW}. Each user story is assign a category of MoSCoW considering:
     \begin{itemize}
   \item The importance to stakeholders
   \item The frequency of use
   \item The order of use
 \end{itemize}
-\item \textbf{Estimated Story Points:} The story points of user stories are expressed in a pseudo-Fibonacci Sequence (0, 1/2, 1, 2, 3, 5, 8, 13, ... Infinity).
+\item \textbf{Estimated Story Points:} The story points of user stories are expressed in a pseudo-Fibonacci Sequence (0, 1/2, 1, 2, 3, 5, 8, 13, ... Infinity) \cite{wiki_Fibonacci}.
   \item \textbf{Sizing:} Sizing is done using the\textbf{ hour based estimation} and considering:
   \begin{itemize}
   \item The amount of work to do
@@ -31,7 +31,7 @@
 \textbf{Id} & US1 \\ 
 
 \hline
-\textbf{User Story Statement} & As a mathematician, I want to calculate the value of the silver ratio number up to given certain decimal places, so that I can see what the number is up to certain decimal places. \\ 
+\textbf{User Story Statement} & As a mathematician, I would like to calculate the value of the silver ratio number up to given certain decimal places, so that I can see what the number is up to certain decimal places. \\ 
 
 \hline
 \textbf{Acceptance Criteria} & Given that I need to calculate the value of silver ratio number having 10 digits after the decimal point,
@@ -44,10 +44,13 @@ I should see 2.4142135623 as an answer.\\
 \textbf{Priority} & Must have \\ 
 
 \hline
-\textbf{Constraint-1} & The decimal expansion of an calculated irrational number \textbf{should never repeat}.\\ 
+\textbf{Constraint-1} & The supplied \textbf{number of decimal places must be greater than zero.} \\ 
 
 \hline
-\textbf{Constraint-2} & All the numbers after decimal point in the calculated value of the silver ratio number \textbf{must be correct in a manner that the correct value of silver ratio up to 15 decimal places is 2.414213562373095}.\\ 
+\textbf{Constraint-2} & The decimal expansion of an calculated irrational number \textbf{must never repeat}.\\ 
+
+\hline
+\textbf{Constraint-3} & All the numbers after decimal point in the calculated value of the silver ratio number \textbf{must be correct in a manner that the correct value of silver ratio up to 15 decimal places is 2.414213562373095}.\\ 
 
 \hline
 \textbf{Estimated Story Points} & 5 \\ 
@@ -69,7 +72,7 @@ I should see 2.4142135623 as an answer.\\
 \textbf{Id} & US2 \\ 
 
 \hline
-\textbf{User Story Statement} &  As a mathematician, I want to calculate an area of a regular octagon with given side length, so that I can see what the area is for a given side length.\\ 
+\textbf{User Story Statement} &  As a mathematician, I would like to calculate an area of a regular octagon with given side length, so that I can see what the area is for a given side length.\\ 
 
 \hline
 \textbf{Acceptance Criteria} &  
@@ -83,7 +86,10 @@ Then I should see 309.02 as an answer.\\
 \textbf{Priority} & Must have \\ 
 
 \hline
-\textbf{Constraint} & The expression to calculate an area of a regular octagon should use the number 2.4142135623 as a value of the silver ratio number, which has \textbf{exactly 10 digits after the decimal point}.\\ 
+\textbf{Constraint-1} & The supplied \textbf{side length number must be greater than zero.} \\ 
+
+\hline
+\textbf{Constraint-2} & The expression to calculate an area of a regular octagon \textbf{must use the number 2.4142135623 as a value of the silver ratio number}, which has \textbf{exactly 10 digits after the decimal point}.\\ 
 
 \hline
 \textbf{Estimated Story Points} & 3 \\
@@ -105,7 +111,7 @@ Then I should see 309.02 as an answer.\\
 \textbf{Id} & US3 \\ 
 
 \hline
-\textbf{User Story Statement} &  As a mathematician, I want to store a evaluated value of the expression in memory, so that I can use it later.\\
+\textbf{User Story Statement} &  As a mathematician, I would like to store a evaluated value of the expression in memory, so that I can use it later.\\
 
 \hline
 \textbf{Acceptance Criteria} & Given that I have already evaluated an expression and I want to save an intermediate result in memory for later use,
@@ -122,7 +128,7 @@ And the calculator should allow me to do the next operation.\\
 \textbf{Priority} & Must have \\ 
 
 \hline
-\textbf{Constraint} & \textbf{Only one result at a time can be stored} in memory, storing another result in memory while there is already stored value in memory, will \textbf{overwrite the previous result with new result}.\\ 
+\textbf{Constraint} & \textbf{Only one result at a time can be stored} in memory, storing another result in memory while there is already stored value in memory, \textbf{ must overwrite the previous result with new result}.\\ 
 
 \hline
 \textbf{Estimated Story Points} & 5 \\ 
@@ -144,7 +150,7 @@ And the calculator should allow me to do the next operation.\\
 \textbf{Id} & US4 \\ 
 
 \hline
-\textbf{User Story Statement} & As a mathematician, I want to evaluate an irrational algebraic expression, so that I can see what the evaluated result is. \\ 
+\textbf{User Story Statement} & As a mathematician, I would like to evaluate an irrational algebraic expression, so that I can see what the evaluated result is. \\ 
 
 \hline
 \textbf{Acceptance Criteria} & Given that I have $\sqrt{\delta s + 4}$ as an irrational algebraic expression,
@@ -157,7 +163,13 @@ Then I should see the result as 2.101003.\\
 \textbf{Priority} & Should have \\ 
 
 \hline
-\textbf{Constraint} & \textbf{If an irrational algebraic expression has the silver ratio as an operand}, it should use the number 2.4142135623 as a value of the silver ratio number, which has \textbf{exactly 10 digits after the decimal point}.\\
+\textbf{Constraint-1} & \textbf{If supplied irrational algebraic expression contains one or more arithmetic operators}, then an irrational algebraic expression \textbf{must contain at least two operands.}\\
+
+\hline
+\textbf{Constraint-2} & \textbf{If supplied irrational algebraic expression contains one or more opening parenthesis}, then an irrational algebraic expression \textbf{must contain the same number of closing parenthesis.}\\
+
+\hline
+\textbf{Constraint-3} & \textbf{If supplied irrational algebraic expression has the silver ratio as an operand}, it must use the number 2.4142135623 as a value of the silver ratio number, which has \textbf{exactly 10 digits after the decimal point}.\\
 
 \hline
 \textbf{Estimated Story Points} & 5 \\ 
@@ -179,7 +191,7 @@ Then I should see the result as 2.101003.\\
 \textbf{Id} & US4 \\ 
 
 \hline
-\textbf{User Story Statement} & As a mathematician, I want to evaluate an irrational arithmetic expression, so that I can see what the evaluated result is. \\ 
+\textbf{User Story Statement} & As a mathematician, I would like to evaluate an irrational arithmetic expression, so that I can see what the evaluated result is. \\ 
 
 \hline
 \textbf{Acceptance Criteria-1} & Given that I have ${(\delta s + 4) / 100 * 3}$ as an irrational arithmetic expression,
@@ -248,7 +260,13 @@ Then I should see the quotient as infinity.\\
 \textbf{Priority} & Must have \\ 
 
 \hline
-\textbf{Constraint} & \textbf{If an irrational arithmetic expression has the silver ratio as an operand}, it should use the number 2.4142135623 as a value of the silver ratio number, which has \textbf{exactly 10 digits after the decimal point}.\\
+\textbf{Constraint-1} & \textbf{If supplied irrational arithmetic expression contains one or more arithmetic operators}, then an irrational arithmetic expression \textbf{must contain at least two operands.}\\
+
+\hline
+\textbf{Constraint-2} & \textbf{If supplied irrational arithmetic expression contains one or more opening parenthesis}, then an irrational arithmetic expression \textbf{must contain the same number of closing parenthesis.}\\
+
+\hline
+\textbf{Constraint-3} & \textbf{If an irrational arithmetic expression has the silver ratio as an operand}, it must use the number 2.4142135623 as a value of the silver ratio number, which has \textbf{exactly 10 digits after the decimal point}.\\
 
 \hline
 \textbf{Estimated Story Points} & 5 \\ 
@@ -270,28 +288,27 @@ Then I should see the quotient as infinity.\\
 \textbf{Id} & US6 \\ 
 
 \hline
-\textbf{User Story Statement} & As a mathematician, I want to verify that
-ratio between given two numbers is the silver ratio or not, so that I can confirm that both the given numbers are consecutive numbers from the Pell number sequence or not.\\ 
+\textbf{User Story Statement} & As a mathematician, I would like to verify that ratio between given two numbers is the silver ratio or not, so that I can confirm that both the given numbers are consecutive numbers from the Pell number sequence or not.\\ 
 
 \hline
 \textbf{Acceptance Criteria-1} & Given that I have two numbers $n1=29$ and $n2=12$,
 
 When I evaluate using both the numbers $n1$ and $n2$,
 
-Then I should see the resulting message as "Pell Numbers". \\ 
+Then I should see the resulting message as ``Pell Numbers''. \\ 
 
 \hline
 \textbf{Acceptance Criteria-2} & Given that I have two numbers $n1=45$ and $n2=5$,
 
 When I evaluate using both the numbers $n1$ and $n2$,
 
-Then I should see the resulting message as "Not Pell Numbers". \\
+Then I should see the resulting message as ``Not Pell Numbers''. \\
 
 \hline
 \textbf{Priority} & Could have \\ 
 
 \hline
-\textbf{Constraint} & Let's say $n1$ and $n2$ are given two numbers where $ n1 > n2 $. The ratio $n1/n2$ of both the numbers is silver ratio if it equals to the ratio of the sum of the smaller number $n1$ and twice the larger number $n2$ to the larger number $n2$. So, $n1/n2$ is the silver ratio if:
+\textbf{Constraint} & Let's say $n1$ and $n2$ are given two numbers where $ n1 > n2 $. The ratio $n1/n2$ of both the numbers is silver ratio \textbf{if and only if} it equals to the ratio of the sum of the smaller number $n1$ and twice the larger number $n2$ to the larger number $n2$. So, $n1/n2$ is the silver ratio if:
 
 \[\frac{n1}{n2}=\frac{2n1 + n2}{n1} \] \\ 
 
