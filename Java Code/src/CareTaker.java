@@ -21,4 +21,8 @@ public class CareTaker {
 	public int getListSize() {
 		return mementoList.size();
 	}
+	
+	public void clearList() {
+		mementoList.clear();
+	}
 }

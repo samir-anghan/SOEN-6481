@@ -11,7 +11,7 @@ public class Display {
 	 * @param result Result to display.
 	 */
 	public void displayResult(double result) {
-		System.out.println("\n---------RESULT DISPLAY---------");
+		System.out.println("---------RESULT DISPLAY---------");
 		if (result == 0.0)
 			System.out.println("0");
 		else
@@ -25,7 +25,7 @@ public class Display {
 	 * @param error Result to display.
 	 */
 	public void displayResult(String error) {
-		System.out.println("\n---------RESULT DISPLAY---------");
+		System.out.println("---------RESULT DISPLAY---------");
 		System.out.println(error);
 		System.out.println("--------------------------------\n");
 	}
@@ -39,5 +39,15 @@ public class Display {
 		System.out.println("*!");
 		System.out.println("*! ERROR DISCRIPTION: " + error);
 		System.out.println("*!\n");
+	}
+	
+	public void displayMemoryIndicator() {
+		System.out.println("--------MEMORY HAS RESULT-------\n");
+	}
+	
+	public void printFeedback(String feedback) {
+		System.out.println("#");
+		System.out.println("# FEEDBACK: " + feedback);
+		System.out.println("#\n");
 	}
 }

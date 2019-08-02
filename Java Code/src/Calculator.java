@@ -1,11 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Contains main method.
- * 
- * @author Samir
- *
- */
 public class Calculator {
 
 	public static void main(String[] args) {
@@ -17,62 +11,33 @@ public class Calculator {
 		Display display = new Display();
 		CurrentOperation currentOperation = CurrentOperation.None;
 
-		Scanner in = new Scanner(System.in);
-		int userChoice;
+		String userChoice;
 		double result = 0;
 
 		System.out.println("** The Irrational Number Calculator **\n");
-		display.displayResult(result);
+
 		do {
-			System.out.println("#");
+			display.displayResult(result);
+			if (careTaker.getListSize() > 0)
+				display.displayMemoryIndicator();
 
-			System.out.println("# Basic Functions:");
-			System.out.println("# -----------------");
-			System.out.println("# Press 1: To evaluate an arithmetic expression.");
-			System.out.println("#");
-			System.out.println("#");
-
-			System.out.println("# Silver Ratio Number Functions:");
-			System.out.println("# --------------------------------");
-			System.out.println("# Press 2: To calculate the value of the silver ratio number up to certain precision.");
-			System.out.println("#");
-			System.out.println("#");
-
-			System.out.println("# Silver Ratio Number Application Functions:");
-			System.out.println("# -------------------------------------------");
-			System.out.println("# Press 3: To calculate an area of a regular octagon with given side length.");
-			System.out.println("#");
-			System.out.println("#");
-
-			System.out.println("# Memory Functions:");
-			System.out.println("# ------------------");
-			System.out.println("# Press 4: To store the displayed value to the memory for later use.");
-			System.out.println("# Press 5: To recall the value stored in memory.");
-			System.out.println("# Press 6: To clear the memory.");
-			System.out.println("#");
-			System.out.println("#");
-
-			System.out.println("# Other:");
-			System.out.println("# -------");
-			System.out.println("# Press 0: To Switch Off.");
-			System.out.println("#");
-
-			userChoice = in.nextInt();
-			in.nextLine();
+			displayChoices();
+			Scanner in = new Scanner(System.in);
+			userChoice = in.nextLine();
 
 			switch (userChoice) {
-			case 1:
+			case "1":
 				System.out.println("*?");
-				System.out.println("*? Keys:");
 				System.out.println(
-						"*? Letter \"S\": Use the letter \"S\" in your expression for the silver ratio number, if you want to use the silver ratio number.");
-				System.out.println("*? Please write your arithmetic expression:");
+						"*? Use the letter \"S\" in your expression for the silver ratio number,");
+				System.out.println("*? if you want to use the silver ratio number in your expression.");
 				System.out.println("*?");
+				System.out.println("*? Please write your arithmetic expression:");
+			
 				String expression = in.nextLine();
 				try {
 					arithmeticExpression.evaluate(expression);
 					result = arithmeticExpression.getResult();
-					display.displayResult(result);
 				} catch (Exception e1) {
 					display.displayResult("ERROR");
 					result = 0;
@@ -82,15 +47,14 @@ public class Calculator {
 				currentOperation = CurrentOperation.ArithmeticExpression;
 				break;
 
-			case 2:
+			case "2":
 				System.out.println("*?");
-				System.out.println("*? How many digits do you want after decimal point?");
+				System.out.println("*? How many digits do you want after decimal point?:");
 				System.out.println("*?");
 				int numberofDecimals = in.nextInt();
 				try {
 					silverRatio.computeValueUptoPrecision(numberofDecimals);
 					result = silverRatio.getResult();
-					display.displayResult(result);
 				} catch (Exception e1) {
 					display.displayResult("ERROR");
 					result = 0;
@@ -100,29 +64,31 @@ public class Calculator {
 				currentOperation = CurrentOperation.ComputeSilverRatio;
 				break;
 
-			case 3:
+			case "3":
 				System.out.println("*?");
 				System.out.println("*? Please enter side length of octagon:");
 				System.out.println("*?");
 				int sideLength = in.nextInt();
 				regularOctagonExpression.computeAreaOfRegularOctagon(sideLength);
 				result = regularOctagonExpression.getResult();
-				display.displayResult(result);
 				currentOperation = CurrentOperation.AreaOfOctagon;
 				break;
 
-			case 4:
+			case "4":
 				switch (currentOperation) {
 				case ArithmeticExpression:
 					careTaker.set(arithmeticExpression.saveResultToMemento());
+					display.printFeedback("Result has been stored in memory for later use.");
 					break;
 
 				case AreaOfOctagon:
 					careTaker.set(regularOctagonExpression.saveResultToMemento());
+					display.printFeedback("Result has been stored in memory for later use.");
 					break;
 
 				case ComputeSilverRatio:
 					careTaker.set(silverRatio.saveResultToMemento());
+					display.printFeedback("Result has been stored in memory for later use.");
 					break;
 
 				case None:
@@ -134,37 +100,44 @@ public class Calculator {
 				}
 				break;
 
-			case 5:
+			case "5":
 				int index = careTaker.getListSize() - 1;
 				switch (currentOperation) {
 				case ArithmeticExpression:
 					arithmeticExpression.restoreResultFromMemento(careTaker.get(index));
 					result = arithmeticExpression.getResult();
-					display.displayResult(result);
+					display.printFeedback("Result has been restored from memory.");
 					break;
 
 				case AreaOfOctagon:
 					regularOctagonExpression.restoreResultFromMemento(careTaker.get(index));
+					display.printFeedback("Result has been restored from memory.");
 					result = regularOctagonExpression.getResult();
-					display.displayResult(result);
+					
 					break;
 
 				case ComputeSilverRatio:
 					silverRatio.restoreResultFromMemento(careTaker.get(index));
+					display.printFeedback("Result has been restored from memory.");
 					result = silverRatio.getResult();
-					display.displayResult(result);
+					
 					break;
 
 				case None:
 					display.displayResult("ERROR");
-					display.printError("There is no result stored in memory.");
+					display.printError("There is nothing to restore from memory.");
 
 				default:
 					break;
 				}
 				break;
+				
+			case "6":
+				careTaker.clearList();
+				display.printFeedback("Memory is clear now.");
+				break;
 
-			case 0:
+			case "0":
 				System.out.print("SWITCHING OFF");
 				for (int x = 0; x <= 2; x++) {
 					try {
@@ -178,17 +151,44 @@ public class Calculator {
 				break;
 
 			default:
-				System.out.println("\nINVALID CHOICE !!! \nRun again to use the calculator");
+				display.printError("Invalid choice! Please supply valid choice input.");
 				break;
 			}
-		} while (userChoice != 0);
+		} while (userChoice != "0");
+	}
+
+	private static void displayChoices() {
+		System.out.println("# Basic Functions:");
+		System.out.println("# -----------------");
+		System.out.println("# Press 1: To evaluate an arithmetic expression.");
+		System.out.println("#");
+
+		System.out.println("# Silver Ratio Number Functions:");
+		System.out.println("# --------------------------------");
+		System.out.println("# Press 2: To calculate the value of the silver ratio number up to certain precision.");
+		System.out.println("#");
+
+		System.out.println("# Silver Ratio Number Application Functions:");
+		System.out.println("# -------------------------------------------");
+		System.out.println("# Press 3: To calculate an area of a regular octagon with given side length.");
+		System.out.println("#");
+
+		System.out.println("# Memory Functions:");
+		System.out.println("# ------------------");
+		System.out.println("# Press 4: To store the displayed value to the memory for later use.");
+		System.out.println("# Press 5: To recall the value stored in memory.");
+		System.out.println("# Press 6: To clear the memory.");
+		System.out.println("#");
+
+		System.out.println("# Other:");
+		System.out.println("# -------");
+		System.out.println("# Press 0: To Switch Off.");
+		System.out.println("#");
+		System.out.println("# Please enter your choice:");
 	}
 
 	/**
 	 * Holds current operation.
-	 * 
-	 * @author Samir
-	 *
 	 */
 	enum CurrentOperation {
 		None, ArithmeticExpression, ComputeSilverRatio, AreaOfOctagon;
