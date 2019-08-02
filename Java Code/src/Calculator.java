@@ -111,16 +111,14 @@ public class Calculator {
 
 				case AreaOfOctagon:
 					regularOctagonExpression.restoreResultFromMemento(careTaker.get(index));
-					display.printFeedback("Result has been restored from memory.");
 					result = regularOctagonExpression.getResult();
-					
+					display.printFeedback("Result has been restored from memory.");
 					break;
 
 				case ComputeSilverRatio:
 					silverRatio.restoreResultFromMemento(careTaker.get(index));
-					display.printFeedback("Result has been restored from memory.");
 					result = silverRatio.getResult();
-					
+					display.printFeedback("Result has been restored from memory.");
 					break;
 
 				case None:
