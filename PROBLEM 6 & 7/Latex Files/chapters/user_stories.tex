@@ -1,0 +1,321 @@
+\section{Acknowledgement and Conventions}
+\begin{enumerate}
+  \item \textbf{User story statement:} Following structure is used to build up user story statement:
+  \begin{center}
+  As a \textbf{[Role]}, I would like to ... \textbf{[Goal]}, so that I can ... \textbf{ [Value]}.
+  \end{center}
+  \item \textbf{Priority:} The prioritization of user stories is done using MoSCoW prioritization scheme \cite{wiki_MoSCoW}. Each user story is assign a category of MoSCoW considering:
+    \begin{itemize}
+  \item The importance to stakeholders
+  \item The frequency of use
+  \item The order of use
+\end{itemize}
+\item \textbf{Estimated Story Points:} The story points of user stories are expressed in a pseudo-Fibonacci Sequence (0, 1/2, 1, 2, 3, 5, 8, 13, ... Infinity) \cite{wiki_Fibonacci}.
+  \item \textbf{Sizing:} Sizing is done using the\textbf{ hour based estimation} and considering:
+  \begin{itemize}
+  \item The amount of work to do
+  \item The complexity of the work
+  \item The time need to implement
+\end{itemize}
+\end{enumerate}
+\section{User stories for calculator system}
+
+%%%%%%%%%%%%%%%%%%%% Table No: 1 starts here %%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\begin{tabular}{ | m{2.3cm} | m{12cm} | } 
+
+ \hline
+ \multicolumn{2}{|c|}{\textbf{User Story 1}} \\
+
+\hline
+\textbf{Id} & US1 \\ 
+
+\hline
+\textbf{User Story Statement} & As a mathematician, I would like to calculate the value of the silver ratio number up to given certain decimal places, so that I can see what the number is up to certain decimal places. \\ 
+
+\hline
+\textbf{Acceptance Criteria} & Given that I need to calculate the value of silver ratio number having 10 digits after the decimal point,
+
+When I perform an operation by providing 10 as a number of digits I want after the decimal point,
+
+I should see 2.4142135623 as an answer.\\ 
+
+\hline
+\textbf{Priority} & Must have \\ 
+
+\hline
+\textbf{Constraint-1} & The supplied \textbf{number of decimal places must be greater than zero.} \\ 
+
+\hline
+\textbf{Constraint-2} & The decimal expansion of an calculated irrational number \textbf{must never repeat}.\\ 
+
+\hline
+\textbf{Constraint-3} & All the numbers after decimal point in the calculated value of the silver ratio number \textbf{must be correct in a manner that the correct value of silver ratio up to 15 decimal places is 2.414213562373095}.\\ 
+
+\hline
+\textbf{Estimated Story Points} & 5 \\ 
+\hline
+
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%% Table No: 1 ends here %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Table No: 2 starts here %%%%%%%%%%%%%%%%%%%%
+\hspace{1cm}
+\begin{center}
+\begin{tabular}{ | m{2.3cm} | m{12cm} | } 
+
+ \hline
+ \multicolumn{2}{|c|}{\textbf{User Story 2}} \\
+
+\hline
+\textbf{Id} & US2 \\ 
+
+\hline
+\textbf{User Story Statement} &  As a mathematician, I would like to calculate an area of a regular octagon with given side length, so that I can see what the area is for a given side length.\\ 
+
+\hline
+\textbf{Acceptance Criteria} &  
+Given that I need to calculate an area of a regular octagon with a side length of 8,
+
+When I perform an operation by providing 8 as a side length of an octagon,
+
+Then I should see 309.02 as an answer.\\ 
+
+\hline
+\textbf{Priority} & Must have \\ 
+
+\hline
+\textbf{Constraint-1} & The supplied \textbf{side length number must be greater than zero.} \\ 
+
+\hline
+\textbf{Constraint-2} & The expression to calculate an area of a regular octagon \textbf{must use the number 2.4142135623 as a value of the silver ratio number}, which has \textbf{exactly 10 digits after the decimal point}.\\ 
+
+\hline
+\textbf{Estimated Story Points} & 3 \\
+\hline
+
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%% Table No: 2 ends here %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Table No: 3 starts here %%%%%%%%%%%%%%%%%%%%
+\hspace{1cm}
+\begin{center}
+\begin{tabular}{ | m{2.3cm} | m{12cm} | } 
+
+ \hline
+ \multicolumn{2}{|c|}{\textbf{User Story 3}} \\
+
+\hline
+\textbf{Id} & US3 \\ 
+
+\hline
+\textbf{User Story Statement} &  As a mathematician, I would like to store a evaluated value of the expression in memory, so that I can use it later.\\
+
+\hline
+\textbf{Acceptance Criteria} & Given that I have already evaluated an expression and I want to save an intermediate result in memory for later use,
+
+When I press ``M in'' key,
+
+Then the value of evaluated expression should be stored in memory,
+
+And the status bar on the display should show ``M'' as memory indicator,
+
+And the calculator should allow me to do the next operation.\\ 
+
+\hline
+\textbf{Priority} & Must have \\ 
+
+\hline
+\textbf{Constraint} & \textbf{Only one result at a time can be stored} in memory, storing another result in memory while there is already stored value in memory, \textbf{ must overwrite the previous result with new result}.\\ 
+
+\hline
+\textbf{Estimated Story Points} & 5 \\ 
+\hline
+
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%% Table No: 3 ends here %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Table No: 4 starts here %%%%%%%%%%%%%%%%%%%%
+\hspace{1cm}
+\begin{center}
+\begin{tabular}{ | m{2.3cm} | m{12cm} | } 
+
+ \hline
+ \multicolumn{2}{|c|}{\textbf{User Story 4}} \\
+
+\hline
+\textbf{Id} & US4 \\ 
+
+\hline
+\textbf{User Story Statement} & As a mathematician, I would like to evaluate an irrational algebraic expression, so that I can see what the evaluated result is. \\ 
+
+\hline
+\textbf{Acceptance Criteria} & Given that I have $\sqrt{\delta s + 4}$ as an irrational algebraic expression,
+
+When I evaluate the expression,
+
+Then I should see the result as 2.101003.\\
+
+\hline
+\textbf{Priority} & Should have \\ 
+
+\hline
+\textbf{Constraint-1} & \textbf{If supplied irrational algebraic expression contains one or more arithmetic operators}, then an irrational algebraic expression \textbf{must contain at least two operands.}\\
+
+\hline
+\textbf{Constraint-2} & \textbf{If supplied irrational algebraic expression contains one or more opening parenthesis}, then an irrational algebraic expression \textbf{must contain the same number of closing parenthesis.}\\
+
+\hline
+\textbf{Constraint-3} & \textbf{If supplied irrational algebraic expression has the silver ratio as an operand}, it must use the number 2.4142135623 as a value of the silver ratio number, which has \textbf{exactly 10 digits after the decimal point}.\\
+
+\hline
+\textbf{Estimated Story Points} & 5 \\ 
+\hline
+
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%% Table No: 4 ends here %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Table No: 5 starts here %%%%%%%%%%%%%%%%%%%%
+\hspace{1cm}
+\begin{center}
+\begin{tabular}{ | m{2.3cm} | m{12cm} | } 
+
+ \hline
+ \multicolumn{2}{|c|}{\textbf{User Story 5}} \\
+
+\hline
+\textbf{Id} & US4 \\ 
+
+\hline
+\textbf{User Story Statement} & As a mathematician, I would like to evaluate an irrational arithmetic expression, so that I can see what the evaluated result is. \\ 
+
+\hline
+\textbf{Acceptance Criteria-1} & Given that I have ${(\delta s + 4) / 100 * 3}$ as an irrational arithmetic expression,
+
+When I evaluate the expression,
+
+Then I should see the result as 0.1924264068.\\
+
+\hline
+\textbf{Acceptance Criteria-2} & Given that I have two numbers 5 and the silver ratio number $\delta s$,
+
+When I perform addition on them,
+
+Then I should see the sum as 7.4142135623.\\
+
+\hline
+\textbf{Acceptance Criteria-3} & Given that I have two numbers 2 and the silver ratio number $\delta s$,
+
+When I subtract 2 from the silver ratio number $\delta s$,
+
+Then I should see the difference as 0.4142135623.\\
+
+\hline
+\textbf{Acceptance Criteria-4} & Given that I have two numbers 5 and the silver ratio number $\delta s$,
+
+When I multiply 5 with the silver ratio number $\delta s$,
+
+Then I should see the product as 12.0710678115.\\
+
+\hline
+\textbf{Acceptance Criteria-5} & Given that I have two numbers 0 and the silver ratio number $\delta s$,
+
+When I multiply 0 with the silver ratio number $\delta s$,
+
+Then I should see the product as 0.\\
+
+\hline
+\textbf{Acceptance Criteria-6} & Given that I have two numbers 1 and the silver ratio number $\delta s$,
+
+When I multiply 1 with the silver ratio number $\delta s$,
+
+Then I should see the product as 2.4142135623 which is the same as the silver ratio number $\delta s$. \\
+
+\hline
+\textbf{Acceptance Criteria-7} & Given that I have two numbers 10 and the silver ratio number $\delta s$,
+
+When I divide 10 by the silver ratio number $\delta s$,
+
+Then I should see the quotient as 4.14213562386. \\
+
+\hline
+\textbf{Acceptance Criteria-8} & Given that I have two numbers 0 and the silver ratio number $\delta s$,
+
+When I divide 0 by the silver ratio number $\delta s$,
+
+Then I should see the quotient as 0. \\
+
+\hline
+\textbf{Acceptance Criteria-9} & Given that I have two numbers the silver ratio number $\delta s$ and 0,
+
+When I divide the silver ratio number $\delta s$ by 0,
+
+Then I should see the quotient as infinity.\\
+
+\hline
+\textbf{Priority} & Must have \\ 
+
+\hline
+\textbf{Constraint-1} & \textbf{If supplied irrational arithmetic expression contains one or more arithmetic operators}, then an irrational arithmetic expression \textbf{must contain at least two operands.}\\
+
+\hline
+\textbf{Constraint-2} & \textbf{If supplied irrational arithmetic expression contains one or more opening parenthesis}, then an irrational arithmetic expression \textbf{must contain the same number of closing parenthesis.}\\
+
+\hline
+\textbf{Constraint-3} & \textbf{If an irrational arithmetic expression has the silver ratio as an operand}, it must use the number 2.4142135623 as a value of the silver ratio number, which has \textbf{exactly 10 digits after the decimal point}.\\
+
+\hline
+\textbf{Estimated Story Points} & 5 \\ 
+\hline
+
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%% Table No: 5 ends here %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Table No: 6 starts here %%%%%%%%%%%%%%%%%%%%
+\hspace{1cm}
+\begin{center}
+\begin{tabular}{ | m{2.3cm} | m{12cm} | } 
+
+ \hline
+ \multicolumn{2}{|c|}{\textbf{User Story 6}} \\
+
+\hline
+\textbf{Id} & US6 \\ 
+
+\hline
+\textbf{User Story Statement} & As a mathematician, I would like to verify that ratio between given two numbers is the silver ratio or not, so that I can confirm that both the given numbers are consecutive numbers from the Pell number sequence or not.\\ 
+
+\hline
+\textbf{Acceptance Criteria-1} & Given that I have two numbers $n1=29$ and $n2=12$,
+
+When I evaluate using both the numbers $n1$ and $n2$,
+
+Then I should see the resulting message as ``Pell Numbers''. \\ 
+
+\hline
+\textbf{Acceptance Criteria-2} & Given that I have two numbers $n1=45$ and $n2=5$,
+
+When I evaluate using both the numbers $n1$ and $n2$,
+
+Then I should see the resulting message as ``Not Pell Numbers''. \\
+
+\hline
+\textbf{Priority} & Could have \\ 
+
+\hline
+\textbf{Constraint} & Let's say $n1$ and $n2$ are given two numbers where $ n1 > n2 $. The ratio $n1/n2$ of both the numbers is silver ratio \textbf{if and only if} it equals to the ratio of the sum of the smaller number $n1$ and twice the larger number $n2$ to the larger number $n2$. So, $n1/n2$ is the silver ratio if:
+
+\[\frac{n1}{n2}=\frac{2n1 + n2}{n1} \] \\ 
+
+\hline
+\textbf{Estimated Story Points} & 3 \\ 
+\hline
+
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%% Table No: 6 ends here %%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,53 @@
+\section{Implemented user stories}
+The following table gives information on implemented user stories:
+
+\begin{table}[!ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|l|c|}
+\hline
+\textbf{\begin{tabular}[c]{@{}c@{}}User Story \\ Identifiers\end{tabular}} & \multicolumn{1}{c|}{\textbf{User Story Statement}} & \textbf{Relevant Domain} \\ \hline
+US1 & \begin{tabular}[c]{@{}l@{}}As a mathematician, I would like to calculate the value of \\ the silver ratio number up to given certain decimal places, \\ so that I can see what the number is up to certain decimal \\ places.\end{tabular} & Silver Ratio Number \\ \hline
+US2 & \begin{tabular}[c]{@{}l@{}}As a mathematician, I would like to calculate an area of \\ a regular octagon with given side length, so that I can \\ see what the area is for a given side length.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Silver Ratio Number\\ Application\end{tabular} \\ \hline
+US3 & \begin{tabular}[c]{@{}l@{}}As a mathematician, I would like to store an evaluated \\ value of the expression in memory, so that I can use it \\ later.\end{tabular} & Calculator \\ \hline
+US4 & \begin{tabular}[c]{@{}l@{}}As a mathematician, I would like to evaluate an \\ irrational arithmetic expression, so that I can see what \\ the evaluated result is.\end{tabular} & Calculator \\ \hline
+\end{tabular}%
+}
+\caption{Implemented User Stories}
+\label{tab:my-table}
+\end{table}
+
+\section{Repository URL}
+https://github.com/samir-anghan/SOEN-6481
+
+\section{Repository folders structure}
+The following table gives information on repository folder structure:
+\begin{table}[!ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Parent Folders} & \textbf{Contains} \\ \hline
+DELIVERABLE 1 (D1) & DELIVERABLE 1 Submission Package. \\ \hline
+DELIVERABLE 2 (D2) & DELIVERABLE 2 Submission Package. \\ \hline
+Java Code & \begin{tabular}[c]{@{}l@{}}Java code for implemented user stories along with Eclipse \\ project file and project structure.\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}PROBLEM 1\\ to\\ PROBLEM 9\end{tabular} & PROBLEM 1 to 9 related files. \\ \hline
+\end{tabular}%
+}
+\caption{Github Repository Folder Structure}
+\label{tab:my-table}
+\end{table}
+
+\section{Computation for the value of Silver Ratio}
+
+The following Java function is implemented to compute the value of Silver Ratio: \\
+
+\begin{lstlisting}
+// SilverRatioNumber.java
+// Computes the value of Silver Ratio using recursion
+private double computeSilverRatio(int n) {
+	if (n == 0)
+		return 1;
+	return 2.0 + 1.0 / computeSilverRatio(n - 1);
+}
+\end{lstlisting}
