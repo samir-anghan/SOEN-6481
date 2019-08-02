@@ -28,12 +28,11 @@ public class Calculator {
 			switch (userChoice) {
 			case "1":
 				System.out.println("*?");
-				System.out.println(
-						"*? Use the letter \"S\" in your expression for the silver ratio number,");
+				System.out.println("*? Use the letter \"S\" in your expression for the silver ratio number,");
 				System.out.println("*? if you want to use the silver ratio number in your expression.");
 				System.out.println("*?");
 				System.out.println("*? Please write your arithmetic expression:");
-			
+
 				String expression = in.nextLine();
 				try {
 					arithmeticExpression.evaluate(expression);
@@ -129,7 +128,7 @@ public class Calculator {
 					break;
 				}
 				break;
-				
+
 			case "6":
 				careTaker.clearList();
 				display.printFeedback("Memory is clear now.");
@@ -146,6 +145,7 @@ public class Calculator {
 					}
 				}
 				System.out.println("\nBye.");
+				System.exit(0);
 				break;
 
 			default:
@@ -155,6 +155,9 @@ public class Calculator {
 		} while (userChoice != "0");
 	}
 
+	/**
+	 * Displays calculator functions as choices.
+	 */
 	private static void displayChoices() {
 		System.out.println("# Basic Functions:");
 		System.out.println("# -----------------");

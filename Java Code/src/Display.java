@@ -40,11 +40,19 @@ public class Display {
 		System.out.println("*! ERROR DISCRIPTION: " + error);
 		System.out.println("*!\n");
 	}
-	
+
+	/**
+	 * Displays memory indicator on screen.
+	 */
 	public void displayMemoryIndicator() {
 		System.out.println("--------MEMORY HAS RESULT-------\n");
 	}
-	
+
+	/**
+	 * Prints supplied feedback on screen.
+	 * 
+	 * @param feedback Feedback to print.
+	 */
 	public void printFeedback(String feedback) {
 		System.out.println("#");
 		System.out.println("# FEEDBACK: " + feedback);
